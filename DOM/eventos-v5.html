@@ -1,0 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <p>{{ contador }}</p>
+    <!-- $event usar o segundo parametro evento -->
+    <button v-on:click="somar(5,$event)">Soma 1</button>
+    <p v-on:mousemove="atualizarXY">
+        Mouse:{{ x }} e {{ y }}</p>
+    <span v-on:mousemove="parar">PARAR AQUI!!!</span>
+    <!-- alertas para determinas teclas precionadas -->
+    <input type="text" v-on:keyup.enter="exibirAlerta">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x:0,
+            y:0,
+        },
+        methods:{
+            somar(passo,eve){
+                console.log (eve)
+                this.contador+=passo
+            },
+            atualizarXY(event){
+                this.x = event.clientX
+                this.y = event.clientY
+
+            },
+            // alertas para determinas teclas precionadas
+            parar(e){
+                event.stopImmediatePropagation
+            },
+            exibirAlerta(){
+                alert ('Estou te alertando!')
+            }
+        }
+    })
+</script>

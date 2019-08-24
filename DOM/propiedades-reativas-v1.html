@@ -1,0 +1,17 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <!-- usando Two-Way-Binding, 
+        alterar o que foi colocado primeiro no template 2 sentidos html-template/template-html -->
+    <p>{{ titulo }}</p>
+    <input type="text" v-model="titulo">
+    
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: ' Usando VueJS!'
+        }
+    })
+</script>
